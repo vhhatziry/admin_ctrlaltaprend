@@ -1,0 +1,378 @@
+@font-face {
+    font-family: 'Scripter';
+    src: url(/font/Scripter-Regular.ttf);
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.scrollbar-black::-webkit-scrollbar {
+    width: 1rem; 
+  }
+  
+  .scrollbar-black::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  .scrollbar-black::-webkit-scrollbar-thumb {
+    background: var(--text-color); 
+    border-radius: 0.4rem; 
+  }
+  
+  .scrollbar-black::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color); 
+  }
+  
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--background-color); 
+    color: var(--text-color); 
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; 
+    overflow: hidden;
+}
+
+/* Variables */
+:root {
+    --primary-color: rgba(86, 124, 141, 1);
+    --secondary-color: rgba(255, 255, 242, 1);
+    --background-color: rgba(245, 239, 235, 1);
+    --text-color: rgba(47, 65, 86, 1);
+    --light-gray: rgba(200, 217, 230, 1);
+    --border-color: rgba(200, 217, 230, 0.3); 
+    --primary-color-half: rgba(86, 124, 141, 0.5);
+    --text-color-half: rgba(47, 65, 86, 0.5);
+    --variation-color: rgb(86, 141, 136);
+    --variation-color2: rgba(86, 141, 136, 0.05);
+    --variation-color3: rgba(151, 159, 170, 1);
+}
+
+
+/* Estructura principal */
+.main-container {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "main main"; 
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr; 
+    height: 100vh;
+}
+
+/* Header */
+.nav_header {
+    grid-area: header;
+    height: 100px;
+    background-color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.nav_header h1 { 
+    color: var(--secondary-color); 
+    margin-right: auto;
+    font-family: 'Scripter';
+    text-align: left;
+    font-size: 2.5rem;
+}
+.nav_header img {
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+.nav_header label{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    padding:0 1rem ;
+    text-align: center;
+}
+
+.nav_header a:-webkit-any-link {
+    color: white; 
+    text-decoration: none; 
+}
+
+.last_label{
+    margin-right: 4rem;
+}
+
+/* Contenido principal */
+.main-content {
+    grid-area: main;
+    overflow-y: auto; 
+    padding: 1.5rem;
+    background-color: var(--secondary-color); /* Color de fondo oscuro */
+}
+
+.main-header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    margin-bottom: 1rem;
+    margin-top: -0.5rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800; 
+    color: var(--text-color);
+}
+
+/* Estilos para el encabezado de administrador */
+.admin-header {
+    display: flex;
+    align-items: center; 
+    font-size: 3rem;
+    margin-right: 1rem; 
+}
+
+.admin-header img { 
+    width: 30px; 
+    height: 30px;
+    margin-right: 10px; 
+}
+
+/* Estilos para la sección de gestión de contenido */
+.admin-content {
+    background-color: var(--variation-color3); 
+    padding: 3rem 1rem 0;
+    border-radius: 0.2rem;
+    max-height: 24rem;
+    overflow-y: auto;
+    
+}
+
+.admin-content-h2 {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+
+    margin: -0.5rem auto -2rem auto; /* Márgenes */
+    padding: 1rem 1.5rem; /* Espaciado interno */
+
+    text-align: center; /* Alinea el texto horizontalmente */
+
+    position: sticky;
+    top: 10;
+    z-index: 10;
+
+    width: 30%; /* Asegura el ancho completo */
+    background-color: var(--text-color);
+}
+
+.articles-container {
+    display: flex;
+    gap: 1rem; 
+}
+
+.articles-column {
+    width: 50%; 
+}
+
+.navigation-arrows {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    margin-top: 1rem; 
+}
+
+.navigation-arrows button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: -0.3rem 0.5rem ; /* Espacio entre los botones */
+}
+
+.article-card {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-height: 6rem;
+}
+
+.article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Estructura del encabezado y pie */
+.article-header,
+.article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.article-header h3 {
+    margin: 0 1.5rem;
+    font-size: 1.2rem;
+}
+
+.article-footer p {
+    margin: 0 2rem;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.article-footer .author {
+    font-weight: bold;
+    margin: 0 0.4rem;    
+}
+
+.article-footer .comments {
+    color: #ccc;
+    margin: 0 0.4rem;
+}
+
+/* Contenedor para los íconos */
+.article-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Estilo de los botones con íconos */
+.article-actions button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.article-actions button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Estilos para las acciones de administrador */
+.admin-actions {
+    margin-top: 1rem; 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 0.5rem; 
+}
+
+.admin-actions button {
+    background-color: transparent; /* Fondo transparente */
+    color: white; /* Color del texto blanco */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+
+.admin-actions button:hover {
+    color: #007bff; /* Color azul al pasar el ratón */
+}
+
+
+/* Tarjetas de temas (para el foro) */
+.topics{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.topic-card {
+    display: flex; 
+    align-items: center;
+    background-color: var(--light-gray);
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 1rem;
+    gap: 1rem; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.topic-card:hover {
+    background-color: var(--primary-color);
+    border-color: var(--text-color);
+    color: var(--light-gray);
+    transform: scale(1.02); 
+    h3{
+        color: whitesmoke;
+    }
+}
+
+.topic-card img {
+    width: 6rem; 
+    height: 6rem;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid var(--light-gray); 
+}
+
+.topic-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.topic-card p {
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+}
+
+.topic-stats {
+    display: flex;
+    align-items: center;
+    gap: 1rem; 
+    margin-top: 0.5rem;
+}
+
+.topic-stats span {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem; 
+}
+
+.topic-stats i {
+    font-size: 1rem;
+}
+
+.topics a, .topic-card a:active{ 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .articles-container {
+        flex-direction: column; 
+    }
+
+    .articles-column {
+        width: 100%; 
+    }
+}
