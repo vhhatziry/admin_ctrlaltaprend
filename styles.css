@@ -147,7 +147,7 @@ body {
 }
 
 /* Estilos para la sección de gestión de contenido */
-.admin-content {
+.admin-content, .admin-users{
     background-color: var(--variation-color3); 
     padding: 3rem 1rem 0;
     border-radius: 0.2rem;
@@ -364,6 +364,10 @@ body {
 .topics a, .topic-card a:active{ 
     text-decoration: none; 
     color: inherit; 
+}
+
+.admin-users{
+    display: none;
 }
 
 /* Responsivo */
