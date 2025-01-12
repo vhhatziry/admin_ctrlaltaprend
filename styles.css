@@ -174,6 +174,121 @@ body {
     background-color: var(--text-color);
 }
 
+/* Contenedor de la sección de usuarios */
+.admin-users {
+    background-color: var(--variation-color3);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+
+/* Títulos de la sección */
+.admin-content-h2 {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--text-color);
+    border-radius: 0.5rem;
+}
+
+/* Contenedor de usuarios */
+.users-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mínimo de 200px por tarjeta */
+    grid-template-columns: repeat(4, 1fr); /* Máximo 4 tarjetas por fila */
+    gap: 1.5rem; /* Espacio entre tarjetas */
+    justify-content: center; /* Centra las tarjetas si hay menos de 4 */
+}
+
+/* Tarjetas de usuario */
+.user-card {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Avatar del usuario */
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--light-gray);
+}
+
+/* Información del usuario */
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.user-role {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
+
+/* Acciones del usuario */
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.user-actions .btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.user-actions .btn:hover {
+    background-color: var(--light-gray);
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .users-container {
+        grid-template-columns: repeat(3, 1fr); /* Máximo 3 tarjetas por fila en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .users-container {
+        grid-template-columns: repeat(2, 1fr); /* Máximo 2 tarjetas por fila en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .users-container {
+        grid-template-columns: 1fr; /* Una tarjeta por fila en pantallas muy pequeñas */
+    }
+}
+
+
 .articles-container {
     display: flex;
     gap: 1rem; 
